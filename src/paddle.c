@@ -4,9 +4,6 @@
 #include "SDL3_image/SDL_image.h"
 #include "sdl/common.h"
 
-#define PADDLE_WIDTH 200
-#define PADDLE_HEIGHT 20
-
 Position paddle_position = {WINDOW_WIDTH/2-PADDLE_WIDTH/2, WINDOW_HEIGHT-2*PADDLE_HEIGHT};
 SDL_FRect sprite_portion = {3, 3, 198, 18};
 

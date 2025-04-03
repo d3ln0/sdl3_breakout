@@ -6,6 +6,6 @@
 #include "SDL3/SDL_rect.h"
 #include "SDL3_image/SDL_image.h"
 
-extern Position paddle_position;
+extern Position ball_position;
 
 void init_ball(SDL_Renderer *renderer);
