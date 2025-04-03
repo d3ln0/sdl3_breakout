@@ -1,4 +1,6 @@
 #include "ball.h"
+#include "SDL3/SDL_scancode.h"
+#include "SDL3/SDL_stdinc.h"
 
 Position ball_position = {WINDOW_WIDTH/2, WINDOW_HEIGHT/2};
 int ball_diameter=20;
@@ -6,6 +8,8 @@ int ball_diameter=20;
 
 static SDL_Texture *ball_texture;
 static int movement_speed = 100;
+static float movement_angle = (45.0f/180)*SDL_PI_F;
+static bool ismoving = false;
 
 // static SpriteSize sprite_size = {15, 18};
 
@@ -18,6 +22,20 @@ static void cleanup() {
 static void handle_event() {}
 
 static void update(float delta_time) {
+  //handle keyboard
+  const _Bool *keyboard_state = SDL_GetKeyboardState(NULL);
+
+  if (keyboard_state[SDL_SCANCODE_SPACE]) {
+    ismoving=true;
+  }
+
+  //move
+  float ddist = delta_time * movement_speed;
+
+  if(ismoving){
+    ball_position.x += ddist/SDL_cos(movement_angle);
+    ball_position.y += ddist/SDL_sin(movement_angle);
+  }
 }
 
 static void render(SDL_Renderer *renderer) {
