@@ -22,6 +22,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char **argv) {
   }
 
   init_paddle(state->renderer);
+  init_ball(state->renderer);
 
   // SDL_SetRenderLogicalPresentation(state->renderer, 320, 180,
                                   //  SDL_LOGICAL_PRESENTATION_LETTERBOX);

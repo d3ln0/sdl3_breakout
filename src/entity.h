@@ -10,6 +10,14 @@
       entities[i].function(__VA_ARGS__);                                       \
     }                                                                          \
   }
+ 
+typedef struct {
+  float x, y;
+} Position;
+
+typedef struct {
+  float w, h;
+} SpriteSize;
 
 typedef struct {
   char name[MAX_NAME_LENGTH];
